@@ -101,12 +101,12 @@ export default function ImageGeneratorPage() {
           ) : (
             <div onClick={toggleModal} className="cursor-pointer">
               <Image
-                alt="Generated Image"
+                alt=""
                 className="aspect-square object-cover border border-gray-200 rounded-lg overflow-hidden dark:border-gray-800"
                 src={imageUrl}
                 onContextMenu={(e) => e.preventDefault()}
-                width="512"
-                height="512"
+                width="412"
+                height="412"
               />
             </div>
           )}
@@ -120,7 +120,7 @@ export default function ImageGeneratorPage() {
             onClick={toggleModal} // Closes the modal when clicking outside
           >
             <div
-              className="relative w-full h-[90vh] p-10"
+              className="relative w-full h-[50vh] p-10"
               onClick={(e) => e.stopPropagation()}
             >
               {" "}
@@ -143,24 +143,6 @@ export default function ImageGeneratorPage() {
             </div>
           </div>
         )}
-
-        <div className="w-full max-w-md mb-4">
-          <Label htmlFor="aspectRatio">Tamanho da imagem</Label>
-          <Select
-            id="aspectRatio"
-            value={selectedAspectRatio}
-            onValueChange={setSelectedAspectRatio}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder={selectedAspectRatio} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="1:1">1:1</SelectItem>
-              <SelectItem value="9:16">9:16</SelectItem>
-              <SelectItem value="16:9">16:9</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
 
         <div className="w-full max-w-md mb-4">
           <Label htmlFor="model">Modelo de linguagem</Label>
@@ -193,7 +175,7 @@ export default function ImageGeneratorPage() {
           <Label htmlFor="prompt">Prompt</Label>
           <Input
             id="prompt"
-            placeholder="Describe what you want to see."
+            placeholder="Descreva o que você deseja..."
             type="text"
             value={prompt}
             onChange={handleChange}
@@ -218,8 +200,8 @@ export default function ImageGeneratorPage() {
             Download
           </Button>
         )}
-      </main>
-      <Footer />
+        <Footer />
+      </main>    
     </>
   );
 }
