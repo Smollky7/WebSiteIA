@@ -172,7 +172,7 @@ export default function ImageGeneratorPage() {
         </div>
 
         <div className="w-full max-w-md mb-4">
-          <Label htmlFor="prompt">Prompt</Label>
+          <Label htmlFor="prompt">Escreva aqui</Label>
           <Input
             id="prompt"
             placeholder="Descreva o que você deseja..."
