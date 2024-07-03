@@ -9,7 +9,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'media1.tenor.com',
+        hostname: 'i.gifer.com',
         pathname: '/**' // Allows all paths from media1.tenor.com
       }
     ],

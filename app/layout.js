@@ -5,8 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Assistente virtual",
-  description: "",
+  title: "Assistente Virtual",
+  description: "Seu proximo Assistente Virtual",
 };
 
 export default function RootLayout({ children }) {
