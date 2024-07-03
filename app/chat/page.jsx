@@ -36,16 +36,16 @@ export default function ChatBot() {
 
   useEffect(() => {
     const storedSessions = localStorage.getItem("chatSessions");
-    console.log("Retrieved from localStorage:", storedSessions); // Debugging
+    console.log("Recuperado do localStorage:", storedSessions); // Debugging
     if (storedSessions) {
       const parsedSessions = JSON.parse(storedSessions);
-      console.log("Parsed sessions:", parsedSessions); // Debugging
+      console.log("Sessões analisadas:", parsedSessions); // Debugging
       setChatSessions(parsedSessions);
     }
-    // Retrieve the sidebar state from localStorage
+    // Recuperar o estado da barra lateral do localStorage
     const storedSidebarState = localStorage.getItem("isSidebarVisible");
     if (storedSidebarState !== null) {
-      // Check for null to determine if the key exists
+      // Verifique se existe a chave
       setIsSidebarVisible(JSON.parse(storedSidebarState));
     }
   }, []);
@@ -53,12 +53,12 @@ export default function ChatBot() {
   const toggleSidebar = () => {
     setIsSidebarVisible((prevState) => {
       const newState = !prevState;
-      localStorage.setItem("isSidebarVisible", JSON.stringify(newState)); // Save the new state to localStorage
+      localStorage.setItem("isSidebarVisible", JSON.stringify(newState)); // Salvar o novo estado no localStorage
       return newState;
     });
   };
 
-  // Splitting bot's message into paragraphs for each new line
+  // Dividir a mensagem do bot em parágrafos para cada nova linha
   const formatBotResponse = (text) => {
     return text.split("\n").map((item, index) => <p key={index}>{item}</p>);
   };
@@ -115,14 +115,14 @@ export default function ChatBot() {
             : inputMessage.slice(0, 20);
         const newSession = {
           id: Date.now(),
-          topic: newSessionTopic || "New Chat", // If inputMessage is empty, use "New Chat"
+          topic: newSessionTopic || "Novo Chat", // Se inputMessage estiver vazio, use "Novo Chat"
           messages: [...messages, userMessage, botMessage],
           isActive: true,
         };
         setChatSessions((prevSessions) => [...prevSessions, newSession]);
       }
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("Erro ao enviar mensagem:", error);
     } finally {
       setLoading(false);
     }
@@ -142,14 +142,14 @@ export default function ChatBot() {
       (session) => session.id !== sessionId
     );
     setChatSessions(updatedSessions);
-    // Immediately update localStorage after state update
+    // Atualizar imediatamente o localStorage após a atualização do estado
     localStorage.setItem("chatSessions", JSON.stringify(updatedSessions));
   };
 
   const handleDeleteAllSessions = () => {
     setChatSessions([]);
     setMessages([]);
-    // Clear the specific localStorage data
+    // Limpar os dados específicos do localStorage
     localStorage.removeItem("chatSessions");
   };
 
@@ -158,16 +158,16 @@ export default function ChatBot() {
       <Header />
       <div className="flex h-screen bg-gray-900 text-white">
         {isSidebarVisible && (
-          <aside className="w-60 flex flex-col bg-[#1e293b] border-r border-gray-300 h-screen">
-            <div className="flex items-center justify-between p-4 border-b border-gray-300">
+          <aside className="w-60 flex flex-col bg-[#1e293b] border-r border-gray-700 h-screen">
+            <div className="flex items-center justify-between p-4 border-b border-gray-700">
               <Button
-                className="bg-gray-200 text-sm py-2 px-4 rounded mr-1"
+                className="bg-gray-800 text-white text-sm py-2 px-4 rounded hover:bg-gray-700"
                 onClick={handleNewSession}
               >
                 Novo Chat
               </Button>
               <Button
-                className="bg-red-500 text-sm py-2 px-4 rounded"
+                className="bg-red-600 text-white text-sm py-2 px-4 rounded hover:bg-red-500"
                 onClick={handleDeleteAllSessions}
               >
                 Deletar tudo
@@ -180,7 +180,7 @@ export default function ChatBot() {
                 .map((session, index) => (
                   <div
                     key={index}
-                    className="p-4 cursor-pointer hover:bg-gray-700 flex justify-between"
+                    className="p-4 cursor-pointer hover:bg-gray-800 flex justify-between items-center border-b border-gray-700"
                   >
                     <div
                       className="flex-1"
@@ -196,9 +196,9 @@ export default function ChatBot() {
                       </div>
                     </div>
                     <TrashIcon
-                      className="w-6 h-6 text-red-500 cursor-pointer"
+                      className="w-6 h-6 text-red-500 cursor-pointer hover:text-red-400"
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent selecting the session when clicking the delete icon
+                        e.stopPropagation(); // Evitar selecionar a sessão ao clicar no ícone de exclusão
                         handleDeleteSession(session.id);
                       }}
                     />
@@ -208,21 +208,21 @@ export default function ChatBot() {
           </aside>
         )}
         <TextIcon
-          className="text-black min-w-6 min-h-6 max-w-8 max-h-8 ml-4 mt-4 cursor-pointer hover:text-gray-400"
+          className="text-white min-w-6 min-h-6 max-w-8 max-h-8 ml-4 mt-4 cursor-pointer hover:text-gray-400"
           onClick={toggleSidebar}
-          title="Toggle sidebar"
+          title="Alternar barra lateral"
         />
 
         <main className="flex-1 flex flex-col bg-[#0f172a]">
-          <header className="flex items-center justify-between p-4 border-b border-gray-300">
+          <header className="flex items-center justify-between p-4 border-b border-gray-700">
             <Select
               onValueChange={(value) => setSelectedModel(value)}
               value={selectedModel}
             >
-              <SelectTrigger id="modelSelect">
-                <SelectValue placeholder="Select a model" />
+              <SelectTrigger id="modelSelect" className="bg-gray-800 text-white hover:bg-gray-700">
+                <SelectValue placeholder="Selecione um modelo" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-gray-800 text-white">
                 <SelectItem value="llama-3-70b-chat">LLaMA3 70b</SelectItem>
                 <SelectItem value="mistral-8x7b-instruct-v0.1">
                   Mistral 8x7B
@@ -263,14 +263,14 @@ export default function ChatBot() {
                     {msg.author === "user" ? (
                       <Avatar>
                         <AvatarImage src="https://i.pinimg.com/736x/61/f7/5e/61f75ea9a680def2ed1c6929fe75aeee.jpg" />
-                        <AvatarFallback>User</AvatarFallback>
+                        <AvatarFallback>Usuário</AvatarFallback>
                       </Avatar>
                     ) : null}
                     <div
                       className={`max-w-[70%] p-2 rounded-md ${
                         msg.author === "user"
-                          ? "bg-gray-200 text-black"
-                          : "bg-purple-900 text-white"
+                          ? "bg-gray-700 text-white"
+                          : "bg-[#1789AB] text-white"
                       }`}
                     >
                       {msg.author === "bot" ? (
@@ -281,7 +281,7 @@ export default function ChatBot() {
                     </div>
                     {msg.author === "bot" ? (
                       <Avatar>
-                        <AvatarImage src="https://i.pinimg.com/736x/6d/42/89/6d42893c93d32cf18e5e56ede1627595.jpg" />
+                        <AvatarImage src="https://media.discordapp.net/attachments/796806130747703360/1258036417582338119/image-removebg-preview.png?ex=66869537&is=668543b7&hm=e8cb72b3df5f10734972694124c137691d87e9e82009a7abe667b5ea6696bafc&=&format=webp&quality=lossless&width=465&height=468" />
                         <AvatarFallback>ChatBot</AvatarFallback>
                       </Avatar>
                     ) : null}
@@ -303,18 +303,18 @@ export default function ChatBot() {
 
             <div className="w-full flex items-center p-4 bg-gray-800 rounded-md">
               <Input
-                className="flex-1 bg-transparent border-none placeholder-gray-500"
-                placeholder="Message ChatBot..."
+                className="flex-1 bg-transparent border-none placeholder-gray-500 text-white"
+                placeholder="Escreva sua mensagem..."
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
               />
-              <Button className="ml-4" onClick={handleSendMessage}>
-                Send
+              <Button className="ml-4 bg-blue-600 text-white hover:bg-blue-500" onClick={handleSendMessage}>
+                Enviar
               </Button>
             </div>
             <p className="text-xs text-gray-500 text-center">
-            O ChatBot pode cometer erros. Considere verificar importante as informações importantes.
+            O ChatBot pode cometer erros. Considere verificar as informações importantes.
             </p>
           </div>
         </main>
@@ -350,7 +350,7 @@ const TrashIcon = (props) => {
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
-      fill="currentColor" // Allows the fill color to be changed via props
+      fill="currentColor" // Permite que a cor de preenchimento seja alterada via props
     >
       <g data-name="Layer 5">
         <path d="M13.39 13a1 1 0 0 0-.91 1.08l.52 6A1 1 0 0 0 14 21h.09A1 1 0 0 0 15 19.91l-.53-6A1 1 0 0 0 13.39 13zM17.53 13.94l-.53 6A1 1 0 0 0 17.91 21H18a1 1 0 0 0 1-.91l.52-6a1 1 0 0 0-2-.17z"></path>
