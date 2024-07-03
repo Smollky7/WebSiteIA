@@ -8,7 +8,6 @@ export function Header() {
   return (
     <header className="px-4 lg:px-6 h-16 flex items-center justify-between">
       <Link href="/" className="flex items-center">
-        <EyeIcon className="h-6 w-6" />
         <span className="ml-2 text-lg font-bold">Assistente virtual</span>
       </Link>
       <button

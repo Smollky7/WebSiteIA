@@ -19,7 +19,7 @@ export default function Home() {
                   alt="Herói de IA"
                   className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
                   height="550"
-                  src="https://media1.tenor.com/m/ow94qLGI8WsAAAAC/ai.gif"
+                  src="https://media1.tenor.com/m/ow94qLGI8WsAhttps://www.ecoquesttechnologies.com/images/aibot.gifAAAC/ai.gif"
                   width="550"
                 />
                 <div className="flex flex-col justify-center space-y-4">
