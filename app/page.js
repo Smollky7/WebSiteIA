@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { Header } from "@/components/header";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -30,7 +33,29 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>  
+          </section>
+          <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+            <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 text-center md:px-6">
+              <div className="space-y-3">
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                Pronto para experimentar o futuro da IA?
+                </h2>
+                <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                Inscreva-se agora para atualizações futuras do sistema de geração de imagens de IA e chatbot.
+                </p>
+              </div>
+              <div className="mx-auto w-full max-w-sm space-y-2">
+                <form className="flex space-x-2">
+                  <Input
+                    className="max-w-lg flex-1"
+                    placeholder="Digite seu e-mail"
+                    type="email"
+                  />
+                  <Button type="submit">Inscreva-se</Button>
+                </form>
+              </div>
+            </div>
+          </section>
         </main>
         <Footer />
       </div>

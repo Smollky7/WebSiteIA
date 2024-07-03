@@ -21,14 +21,16 @@ export function Header() {
           )}
         </svg>
       </button>
-      <nav
-        className={`${
-          isMenuOpen ? 'flex' : 'hidden'
-        } absolute lg:relative top-16 lg:top-0 right-0 lg:flex flex-col lg:flex-row justify-center items-center bg-black lg:bg-transparent bg-opacity-90 py-4 lg:py-0 lg:items-center lg:ml-auto gap-4 sm:gap-6 w-full lg:w-auto`}>
-        <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">Inicio</Link>
-        <Link href="/image-generator" className="text-sm font-medium hover:underline underline-offset-4">Gerador de imagens</Link>
-        <Link href="/chat" className="text-sm font-medium hover:underline underline-offset-4">Chat</Link>
-      </nav>
+      <nav className={`${
+  isMenuOpen ? 'flex bg-black bg-opacity-60' : 'hidden lg:bg-transparent'
+} absolute lg:relative top-16 lg:top-0 right-0 lg:flex flex-col lg:flex-row justify-center items-center py-4 lg:py-0 lg:items-center lg:ml-auto gap-4 sm:gap-6 w-full lg:w-auto`}>
+  <Link href="/" className="text-sm font-medium hover:underline underline-offset-4 text-white">Inicio</Link>
+  <Link href="/image-generator" className="text-sm font-medium hover:underline underline-offset-4 text-white">Gerador de imagens</Link>
+  <Link href="/chat" className="text-sm font-medium hover:underline underline-offset-4 text-white">Chat</Link>
+</nav>
+
+
+
     </header>
   );
 }

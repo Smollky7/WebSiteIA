@@ -144,31 +144,22 @@ export default function ImageGeneratorPage() {
           </div>
         )}
 
-        <div className="w-full max-w-md mb-4">
-          <Label htmlFor="model">Modelo de linguagem</Label>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button className="w-full" variant="outline">
-                Selecionar modelo de linguagem
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuRadioGroup
-                value={selectedModel}
-                onValueChange={setSelectedModel}
-              >
-                <DropdownMenuRadioItem value="playground-v2">
-                  Playground V2 (Default)
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="kandinsky-2.2">
-                  Kandinsky 2.2
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="dreamshaper-xl-turbo">
-                  Dreamshaper XL Turbo
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+<div className="w-full max-w-md mb-4">
+          <Label htmlFor="aspectRatio">Image size</Label>
+          <Select
+            id="aspectRatio"
+            value={selectedAspectRatio}
+            onValueChange={setSelectedAspectRatio}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder={selectedAspectRatio} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1:1">1:1</SelectItem>
+              <SelectItem value="9:16">9:16</SelectItem>
+              <SelectItem value="16:9">16:9</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="w-full max-w-md mb-4">
