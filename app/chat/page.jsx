@@ -164,13 +164,13 @@ export default function ChatBot() {
                 className="bg-gray-200 text-sm py-2 px-4 rounded mr-1"
                 onClick={handleNewSession}
               >
-                New chat
+                Novo Chat
               </Button>
               <Button
                 className="bg-red-500 text-sm py-2 px-4 rounded"
                 onClick={handleDeleteAllSessions}
               >
-                Delete All
+                Deletar tudo
               </Button>
             </div>
             <div className="flex-1 overflow-y-auto">
@@ -234,15 +234,8 @@ export default function ChatBot() {
           <div className="flex-1 p-6 flex flex-col space-y-6">
             {messages.length === 0 && (
               <div className="flex flex-col justify-center items-center space-y-6">
-                <Image
-                  src="/visioneye.gif"
-                  alt="Welcome"
-                  width={150} // Set width as a prop
-                  height={120} // Set height as a prop
-                  className="text-black"
-                />
                 <h1 className="text-3xl font-semibold">
-                  How can I help you today?
+                  Com o que eu posso te ajudar hoje?
                 </h1>
               </div>
             )}
@@ -288,7 +281,7 @@ export default function ChatBot() {
                     </div>
                     {msg.author === "bot" ? (
                       <Avatar>
-                        <AvatarImage src="https://p7.hiclipart.com/preview/401/376/896/computer-icons-eye-symbol-eye.jpg" />
+                        <AvatarImage src="https://i.pinimg.com/736x/6d/42/89/6d42893c93d32cf18e5e56ede1627595.jpg" />
                         <AvatarFallback>ChatBot</AvatarFallback>
                       </Avatar>
                     ) : null}
@@ -321,8 +314,7 @@ export default function ChatBot() {
               </Button>
             </div>
             <p className="text-xs text-gray-500 text-center">
-              ChatBot can make mistakes. Consider checking important
-              information.
+            O ChatBot pode cometer erros. Considere verificar importante as informações importantes.
             </p>
           </div>
         </main>

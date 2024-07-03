@@ -94,7 +94,7 @@ export default function ImageGeneratorPage() {
     <>
       <Header />
       <main className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1 className="text-4xl font-bold mb-4">Image Generator</h1>
+        <h1 className="text-4xl font-bold mb-4">Gerador de imagens</h1>
         <section className="w-full max-w-2xl mb-8 flex justify-center">
           {isLoading ? (
             <Puff color="#00BFFF" height={100} width={100} />
@@ -145,7 +145,7 @@ export default function ImageGeneratorPage() {
         )}
 
         <div className="w-full max-w-md mb-4">
-          <Label htmlFor="aspectRatio">Image size</Label>
+          <Label htmlFor="aspectRatio">Tamanho da imagem</Label>
           <Select
             id="aspectRatio"
             value={selectedAspectRatio}
@@ -163,11 +163,11 @@ export default function ImageGeneratorPage() {
         </div>
 
         <div className="w-full max-w-md mb-4">
-          <Label htmlFor="model">Model</Label>
+          <Label htmlFor="model">Modelo de linguagem</Label>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="w-full" variant="outline">
-                Select Model
+                Selecionar modelo de linguagem
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
@@ -210,7 +210,7 @@ export default function ImageGeneratorPage() {
           onClick={handleGenerateClick}
           disabled={isLoading}
         >
-          Generate
+          Gerar
         </Button>
 
         {imageUrl !== "/placeholder.svg" && (
