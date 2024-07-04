@@ -174,7 +174,7 @@ export default function ImageGeneratorPage() {
 
         <div className="w-full max-w-md mb-4">
           <Label htmlFor="prompt">Escreva aqui</Label>
-          <input
+          <input style={{ color: "black" }}
             id="prompt"
             placeholder="Descreva o que você deseja..."
             type="text"
