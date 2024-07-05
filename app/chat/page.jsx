@@ -281,7 +281,7 @@ export default function ChatBot() {
                     </div>
                     {msg.author === "bot" ? (
                       <Avatar>
-                        <AvatarImage src="https://media.discordapp.net/attachments/796806130747703360/1258036417582338119/image-removebg-preview.png?ex=66869537&is=668543b7&hm=e8cb72b3df5f10734972694124c137691d87e9e82009a7abe667b5ea6696bafc&=&format=webp&quality=lossless&width=465&height=468" />
+                        <AvatarImage src="https://cdn.discordapp.com/attachments/796806130747703360/1258036417582338119/image-removebg-preview.png?ex=6687e6b7&is=66869537&hm=cd12af77719cd0afcfd54bce963a0c371c505b923f08efd0a2c46b2e7e401e04&" />
                         <AvatarFallback>ChatBot</AvatarFallback>
                       </Avatar>
                     ) : null}
